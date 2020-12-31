@@ -3,8 +3,8 @@
 ```bash
 $ sudo apt update
 $ sudo apt install python3-pip
-$ pip install --upgrade pip
-$ sudo pip install django
+$ pip3 install --upgrade pip
+$ sudo pip3 install django
 ```
 
 ### 가상환경 설정, 실행
@@ -80,6 +80,7 @@ https://docs.djangoproject.com/en/3.1/howto/deployment/wsgi/
 import os, sys
 
 sys.path.append('/home/ubuntu/python-django-project')
+sys.path.append('/home/ubuntu/python-django-project/corona_kakao_bot') # ⭐중요.!!!
 sys.path.append('/home/ubuntu/python-django-project/myvenv/lib/python3.6/site-packages')
 
 from django.core.wsgi import get_wsgi_application
@@ -161,7 +162,7 @@ $ vi urls.py
 
 # urls.py
 from django.conf.urls import url
-from [app_name] import views
+from my_first_app import views
 
 urlpatterns = [
   url(r'^keyboard/?$', views.keyboard)
