@@ -1,0 +1,4 @@
+
+### 기능 1번 그래프
+
+![image](https://user-images.githubusercontent.com/47745785/103922317-ec64d300-5156-11eb-8829-5c2686e53cf1.png)
