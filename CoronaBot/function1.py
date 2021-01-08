@@ -16,9 +16,8 @@ def getCovidKR(end_day: str, start_day: str) -> (List[int], List[int]):
         result = xmltodict.parse(res.text)
         # dictionlay type
         dd = json.loads(json.dumps(result))
-        print(dd)
-        for i in range(13):
-            print(dd['response']['body']['items']['item'][i]['updateDt'])
+        # print(dd)
+
 
         sums = []
         adds = []
@@ -56,7 +55,7 @@ def getCovidGraph(sums: List[int], adds: List[int]):
     dates = []
     today = datetime.datetime.now()
 
-    for i in range(13, -1, -1):
+    for i in range(14, 0, -1):
         dates.append((today - datetime.timedelta(i)).strftime("%m.%d"))
     x = np.array(dates)
     y1 = np.array(adds)
