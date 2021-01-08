@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def getCovidKR(end_day: str, start_day: str) -> (List[int], List[int]):
+def getCovidKR(end_day: str, start_day: str) -> (str, str, str, str, List[int], List[int]):
     url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson'
 
     # ServiceKey는 url decode 한 값임.
@@ -18,9 +18,14 @@ def getCovidKR(end_day: str, start_day: str) -> (List[int], List[int]):
         dd = json.loads(json.dumps(result))
         # print(dd)
 
-
         sums = []
         adds = []
+
+        date = dd['response']['body']['items']['item'][0]['stateDt']
+        death = dd['response']['body']['items']['item'][0]['deathCnt']
+        treatment = dd['response']['body']['items']['item'][0]['careCnt']
+        complete = dd['response']['body']['items']['item'][0]['clearCnt']
+
         for i in range(13, -1, -1):
             sums.append(int(dd['response']['body']['items']['item'][i]['decideCnt']))
             adds.append(int(dd['response']['body']['items']['item'][i]['decideCnt']) - int(
@@ -32,17 +37,21 @@ def getCovidKR(end_day: str, start_day: str) -> (List[int], List[int]):
             # print('%s일 %s시 기준' % (
             #     dd['response']['body']['items']['item'][i]["stateDt"],
             #     dd['response']['body']['items']['item'][i]["stateTime"]))
-
     else:
         print('res.status_code is NOT ok')
-    return (sums, adds)
+    return (date, death, treatment, complete, sums, adds)
 
 
-def getCovidTxt(sums: List[int], adds: List[int]):
+def getCovidTxt(date: str, death: str, treatment: str, complete: str, sums: List[int], adds: List[int]):
     f = open("Text/func1data.txt", 'w')
-    f.write(str(sums) +'\n')
-    f.write(str(adds) +'\n')
+    f.write(str(sums[-1]) + '\n')
+    f.write(str(adds[-1]) + '\n')
+    f.write(date + '\n')
+    f.write(death + '\n')
+    f.write(treatment + '\n')
+    f.write(complete + '\n')
     f.close()
+
 
 def getCovidGraph(sums: List[int], adds: List[int]):
     # 1. 기본 스타일 설정
@@ -88,7 +97,7 @@ def getCovidGraph(sums: List[int], adds: List[int]):
 if __name__ == "__main__":
     today = datetime.datetime.now()
     two_weeks_ago = today - datetime.timedelta(14)
-    # sums, adds = getCovidKR(today.strftime("%Y%m%d"), two_weeks_ago.strftime("%Y%m%d"))
-    sums, adds = getCovidKR("20210107", "20201224") # 자정부터 오전 10시까지 테스트용
-    getCovidTxt(sums, adds)
+    # sums, adds, deaths, treatments, completes = getCovidKR(today.strftime("%Y%m%d"), two_weeks_ago.strftime("%Y%m%d"))
+    date, death, treatment, complete, sums, adds = getCovidKR("20210107", "20201224")  # 자정부터 오전 10시까지 테스트용
+    getCovidTxt(date, death, treatment, complete, sums, adds)
     getCovidGraph(sums, adds)
