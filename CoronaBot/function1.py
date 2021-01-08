@@ -3,6 +3,7 @@ from typing import List
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 def getCovidKR(end_day: str, start_day: str) -> (List[int], List[int]):
     url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson'
 
@@ -16,26 +17,33 @@ def getCovidKR(end_day: str, start_day: str) -> (List[int], List[int]):
         # dictionlay type
         dd = json.loads(json.dumps(result))
         print(dd)
+        for i in range(13):
+            print(dd['response']['body']['items']['item'][i]['updateDt'])
 
         sums = []
         adds = []
-
         for i in range(13, -1, -1):
             sums.append(int(dd['response']['body']['items']['item'][i]['decideCnt']))
             adds.append(int(dd['response']['body']['items']['item'][i]['decideCnt']) - int(
                 dd['response']['body']['items']['item'][i + 1]['decideCnt']))
 
-            print('누적 확진자:', dd['response']['body']['items']['item'][i]['decideCnt'], end='\t')
-            print('추가 확진자:', int(dd['response']['body']['items']['item'][i]['decideCnt']) - int(
-                dd['response']['body']['items']['item'][i + 1]['decideCnt']), end='\t\t')
-            print('%s일 %s시 기준' % (
-                dd['response']['body']['items']['item'][i]["stateDt"],
-                dd['response']['body']['items']['item'][i]["stateTime"]))
+            # print('누적 확진자:', dd['response']['body']['items']['item'][i]['decideCnt'], end='\t')
+            # print('추가 확진자:', int(dd['response']['body']['items']['item'][i]['decideCnt']) - int(
+            #     dd['response']['body']['items']['item'][i + 1]['decideCnt']), end='\t\t')
+            # print('%s일 %s시 기준' % (
+            #     dd['response']['body']['items']['item'][i]["stateDt"],
+            #     dd['response']['body']['items']['item'][i]["stateTime"]))
 
     else:
         print('res.status_code is NOT ok')
     return (sums, adds)
 
+
+def getCovidTxt(sums: List[int], adds: List[int]):
+    f = open("Text/func1data.txt", 'w')
+    f.write(str(sums) +'\n')
+    f.write(str(adds) +'\n')
+    f.close()
 
 def getCovidGraph(sums: List[int], adds: List[int]):
     # 1. 기본 스타일 설정
@@ -48,13 +56,13 @@ def getCovidGraph(sums: List[int], adds: List[int]):
     dates = []
     today = datetime.datetime.now()
 
-    for i in range(14, 0, -1):
+    for i in range(13, -1, -1):
         dates.append((today - datetime.timedelta(i)).strftime("%m.%d"))
     x = np.array(dates)
     y1 = np.array(adds)
     y2 = np.array(sums)
 
-    print(dates, adds, sums)
+    # print(dates, adds, sums)
 
     # 3. 그래프 그리기
     fig, ax1 = plt.subplots()
@@ -74,13 +82,14 @@ def getCovidGraph(sums: List[int], adds: List[int]):
     for i, v in enumerate(x):
         ax2.text(v, y1[i], y1[i], fontsize=11, color='orange', horizontalalignment='center', verticalalignment='bottom')
 
-    plt.show()
+    # plt.show()
+    fig.savefig('Image/function1.png')
 
 
 if __name__ == "__main__":
     today = datetime.datetime.now()
-    # two_weeks_ago = today - datetime.timedelta(14)
+    two_weeks_ago = today - datetime.timedelta(14)
     # sums, adds = getCovidKR(today.strftime("%Y%m%d"), two_weeks_ago.strftime("%Y%m%d"))
-    two_weeks_ago = today - datetime.timedelta(15)
-    sums, adds = getCovidKR("20210107", two_weeks_ago.strftime("%Y%m%d"))
+    sums, adds = getCovidKR("20210107", "20201224") # 자정부터 오전 10시까지 테스트용
+    getCovidTxt(sums, adds)
     getCovidGraph(sums, adds)
