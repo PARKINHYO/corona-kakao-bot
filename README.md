@@ -9,7 +9,7 @@
 </p>
 
 
-### <a href="https://github.com/PARKINHYO/corona-kakao-bot/blob/master/LICENSE" target="_blank">🏠 Homepage</a>
+### <a href="http://pf.kakao.com/_kxnxkiK" target="_blank">🏠 Homepage</a>
 
 
 ### 📷 Qr코드
