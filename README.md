@@ -21,7 +21,6 @@
 
 * <b>메뉴바</b>
 
-
    * <b>코로나 알리미 시작하기</b>
      
      * <b>1번 0시 기준 총 확진자 외 정보 확인하기</b>
@@ -63,13 +62,13 @@
 
 👤 **박인효**
 
-* Website: ihp001.tistory.com
+* Website: [ihp001.tistory.com](ihp001.tistory.com)
 * GitHub: [@PARKINHYO](https://github.com/PARKINHYO)
 
 
 ## 📝 License
 
-Copyright © 2021 [박인효](https://github.com/parkinhyo).<br />
+Copyright © 2021 [박인효](https://github.com/parkinhyo).<br/>
 This project is [MIT](https://github.com/PARKINHYO/corona-kakao-bot/blob/master/LICENSE) licensed.
 
 ***
