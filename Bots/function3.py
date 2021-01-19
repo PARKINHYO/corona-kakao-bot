@@ -5,30 +5,29 @@ import datetime, re, os, sys
 
 
 class Function3:
-    def __init__(self, url):
+    def __init__(self, now=None):
         self.datas = []
         self.cities = []
         self.times = []
         self.messages = []
-        self.url = url
+        self.now = now
 
     def getCovidCities(self):
 
         options = webdriver.ChromeOptions()
-        # options.add_argument('headless')
+        options.add_argument('headless')
         options.add_argument('lang=ko_KR')
         driver = webdriver.Chrome('chromedriver', options=options)
         driver.implicitly_wait(1000000)
-        driver.get(self.url)
+        driver.get("https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/sfc/dis/disasterMsgList.jsp?menuSeq=679")
         driver.find_element_by_id("bbs_tr_0_bbs_title").click()
 
         while True:
-            now = datetime.datetime.now().strftime("%Y/%m/%d")
             html = driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
             msg_time = soup.find(attrs={'id': 'sj'}).get_text()
 
-            if now == msg_time[0:10]:
+            if self.now == msg_time[0:10]:
                 text = soup.find(attrs={'id': 'cn'}).get_text()
                 p = re.search('코로나', text)
                 p2 = re.search('확진', text)
@@ -85,15 +84,16 @@ class Function3:
                         self.messages.append(self.datas[i][:start])
                     else:
                         print(self.datas[i])
-            print(len(self.messages), len(self.times), self.times[-1])
             for i in range(len(self.times)):
                 file_name = 'Text/Cities/' + str(i)
                 f = open(file_name, 'w', encoding='utf-8-sig')
                 f.write(self.cities[i] + '\n' + self.times[i] + '\n' + self.messages[i] + '\n\n')
                 f.close()
 
+
 if __name__ == '__main__':
     if len(sys.argv) == 1:
-        Function3("https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/sfc/dis/disasterMsgList.jsp?menuSeq=679").getCovidCities()
+        now = datetime.datetime.now().strftime("%Y/%m/%d")
+        Function3(now).getCovidCities()
     elif sys.argv[1] == '--demo':
-        Function3("https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/sfc/dis/disasterMsgList.jsp?menuSeq=679").getCovidCities()
+        Function3("2021/01/19").getCovidCities()
