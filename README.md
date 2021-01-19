@@ -17,7 +17,7 @@
 
 <img alt="Qr코드" width="200" height="200" src="https://user-images.githubusercontent.com/47745785/104895108-d22dbf00-59b8-11eb-8af9-d1c3d25af5d5.png"/>
 
-## 📜 Usage
+## 📜 사용방법
 
 * <b>메뉴바</b>
 
@@ -56,13 +56,23 @@
 </p>
 
 
+## 📚 출처
+
+* 1번 0시 기준 총 확진자 외 정보 확인하기
+  * [공공데이터포털](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15043376)
+* 2번 금일 실시간 확진자 수 확인하기
+  * [코로나라이브](https://corona-live.com/)
+* 3번 금일 지역별 코로나 재난 문자 확인하기
+  * [국민재난안전포털](https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/sfc/dis/disasterMsgList.jsp?menuSeq=679)
+  * ![img_opentype04](https://user-images.githubusercontent.com/47745785/105054890-d7bcff00-5ab5-11eb-94d3-e9b32a776a9d.png)
+
 
 
 ## 🖋 Author
 
 👤 **박인효**
 
-* Website: [ihp001.tistory.com](ihp001.tistory.com)
+* Mail: [inhyopark122@gmail.com](mailto:inhyopark122@gmail.com)
 * GitHub: [@PARKINHYO](https://github.com/PARKINHYO)
 
 
@@ -70,6 +80,5 @@
 
 Copyright © 2021 [박인효](https://github.com/parkinhyo).<br/>
 This project is [MIT](https://github.com/PARKINHYO/corona-kakao-bot/blob/master/LICENSE) licensed.
-
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
