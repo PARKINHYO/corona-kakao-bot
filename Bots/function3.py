@@ -20,18 +20,20 @@ class Function3:
         driver = webdriver.Chrome('chromedriver', options=options)
         driver.implicitly_wait(1000000)
         driver.get("https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/sfc/dis/disasterMsgList.jsp?menuSeq=679")
+        sleep(0.5)
         driver.find_element_by_id("bbs_tr_0_bbs_title").click()
+        sleep(0.5)
 
         while True:
             html = driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
             msg_time = soup.find(attrs={'id': 'sj'}).get_text()
-
             if self.now == msg_time[0:10]:
                 text = soup.find(attrs={'id': 'cn'}).get_text()
                 p = re.search('코로나', text)
                 p2 = re.search('확진', text)
-                if p or p2:
+                p3 = re.search('거리두기', text)
+                if p or p2 or p3:
                     self.times.append(msg_time[11:19])
                     self.datas.append(text)
             else:
@@ -39,6 +41,7 @@ class Function3:
                 break
             sleep(0.5)
             driver.find_element_by_id("bbs_gubun").click()
+            sleep(0.5)
         self.getCovidText()
 
     def getCovidText(self):
@@ -83,7 +86,8 @@ class Function3:
                         self.cities.append(self.datas[i][start + 11:-1])
                         self.messages.append(self.datas[i][:start])
                     else:
-                        print(self.datas[i])
+                        return
+
             for i in range(len(self.times)):
                 file_name = 'Text/Cities/' + str(i)
                 f = open(file_name, 'w', encoding='utf-8-sig')
