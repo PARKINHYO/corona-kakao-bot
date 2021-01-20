@@ -5,45 +5,46 @@
   </a>
   <a href="https://github.com/PARKINHYO/corona-kakao-bot/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" />
-  </a>
+  </a>  
+</p>
+
+<p align="center">
+<img alt="character" width="300" src="https://user-images.githubusercontent.com/47745785/105130533-8f8bf400-5b2a-11eb-9b33-27e4d68b5736.png" />
+
 </p>
 
 
-### <a href="http://pf.kakao.com/_kxnxkiK" target="_blank">🏠 Homepage</a>
+### 🔑 채널 아이디 : coronavirus19
 
-
-### 📷 Qr코드
-
+### 📷 Qr 코드
 
 <img alt="Qr코드" width="200" height="200" src="https://user-images.githubusercontent.com/47745785/104895108-d22dbf00-59b8-11eb-8af9-d1c3d25af5d5.png"/>
 
+<br><br>
+
 ## 📜 사용방법
 
-* <b>메뉴바</b>
-
-   * <b>코로나 알리미 시작하기</b>
-     
-     * <b>1번 0시 기준 총 확진자 외 정보 확인하기</b>
-     * <b>2번 금일 실시간 확진자 수 확인하기</b>
-     * <b>3번 금일 지역별 코로나 재난 문자 확인하기</b>
-       * <b>지역 검색</b>
-       * <b>주요 지역 바로 연결</b>
-       * <b>검색 창 나가기</b>
-
-   * <b>안내 사항</b>
-     
-     ㅈㄷㄹㄴㄷㄹ
+<img alt="사용방법" height="500" src="https://user-images.githubusercontent.com/47745785/105128866-3ff7f900-5b27-11eb-895e-b9f6c3a0a1ac.gif"/>
 
 
-   * <b>공유하기</b>
-     
-     ㄴㄷㄹㄴㄷㄹㄴ
 
 
-   * <b>후원하기</b>
-      
-     ㄴㄷㄹㄴㄷㄹㄴㄷㄹ
 
+
+* <b>코로나 알리미 시작하기</b>
+
+  * <b>1번 0시 기준 총 확진자 외 정보 확인하기</b>
+  * <b>2번 금일 실시간 확진자 수 확인하기</b>
+  * <b>3번 금일 지역별 코로나 재난 문자 확인하기</b>
+
+    * <b>지역 검색</b>
+
+    * <b>주요 지역 바로 연결</b>
+    * <b>검색 창 나가기</b>
+* <b>안내 사항</b>
+
+* <b>공유하기</b>
+* <b>후원하기</b>
 
 
 ## 📌 Service Flow Chart
