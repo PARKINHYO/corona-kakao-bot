@@ -74,15 +74,16 @@ class Function2:
         line2 = ax2.plot(x, y2, color='blue', marker='o', dash_capstyle='round', dash_joinstyle='round',
                          label='실시간 확진 환자(단위: 명)', linewidth='3', markersize='10')
         for i, v in enumerate(x):
-            ax2.text(v, y2[i], y2[i], fontsize=40, color='black', horizontalalignment='center',
+            #fixme
+            ax2.text(v, y2[i], format(int(y2[i]), ","), fontsize=40, color='black', horizontalalignment='center',
                      verticalalignment='bottom')
-
+        #fixme
         if int(self.data[-1]) > int(self.data[-2]):
-            ax1.set_ylim(0, (int(self.data[-1]) + 100))
-            ax2.set_ylim(0, (int(self.data[-1]) + 100))
+            ax1.set_ylim(0, (int(self.data[-1])*1.3))
+            ax2.set_ylim(0, (int(self.data[-1])*1.3))
         else:
-            ax1.set_ylim(0, (int(self.data[-2]) + 100))
-            ax2.set_ylim(0, (int(self.data[-2]) + 100))
+            ax1.set_ylim(0, (int(self.data[-2])*1.3))
+            ax2.set_ylim(0, (int(self.data[-2])*1.3))
         ax1.set_yticklabels([])
 
         lines = line1 + line2
@@ -97,4 +98,4 @@ if __name__ == '__main__':
         now = int(datetime.datetime.now().strftime("%H"))
         Function2(now).getCovidRealTime()
     elif sys.argv[1] == '--demo':
-        Function2(7).getCovidRealTime()
+        Function2(22).getCovidRealTime()

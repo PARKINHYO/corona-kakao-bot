@@ -74,6 +74,7 @@ class Function1:
         for i in range(1, 8):
             dates.append((start + datetime.timedelta(i)).strftime("%m.%d"))
         x = np.array(dates)
+
         y1 = np.array(self.adds)
         y2 = np.array(self.sums)
 
@@ -82,20 +83,26 @@ class Function1:
         plt.xticks(fontsize='25')
 
         ax1.bar(x, y2, color='skyblue', alpha=0.7, width=0.7, label='누적 확진환자(단위: 명)')
-        ax1.set_ylim(0, 100000)
+        #fixme
+        ax1.set_ylim(0, self.sums[-1] * 1.25)
         ax1.legend(loc='upper left', fontsize=30)
         for i, v in enumerate(x):
-            ax1.text(v, y2[i], y2[i], fontsize=20, color='black', horizontalalignment='center',
+            # fixme
+            ax1.text(v, y2[i], format(int(y2[i]), ","), fontsize=20, color='black', horizontalalignment='center',
                      verticalalignment='bottom')
 
         ax2 = ax1.twinx()
         ax2.plot(x, y1, color='orange', marker='o', dash_capstyle='round', dash_joinstyle='round',
                  label='일 확진환자(단위: 명)', linewidth='3', markersize='20')
         ax2.legend(loc='upper right', fontsize=30)
-        ax2.set_ylim(0, 2500)
+        ylim_range = self.adds[:]
+        ylim_range.sort()
+        # fixme
+        ax2.set_ylim(0, ylim_range[-1] * 2)
 
         for i, v in enumerate(x):
-            ax2.text(v, y1[i], y1[i], fontsize=40, color='black', horizontalalignment='center',
+            # fixme
+            ax2.text(v, y1[i], format(int(y1[i]), ","), fontsize=40, color='black', horizontalalignment='center',
                      verticalalignment='bottom')
 
         # plt.show()
