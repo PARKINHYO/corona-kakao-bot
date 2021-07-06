@@ -10,9 +10,15 @@
 
 <p align="center">
 <img alt="character" width="300" src="https://user-images.githubusercontent.com/47745785/105130533-8f8bf400-5b2a-11eb-9b33-27e4d68b5736.png" />
-
 </p>
 
+<br><br>
+
+<h3 align="center">
+<a href="https://github.com/PARKINHYO/corona-kakao-bot/projects/13" target="_blank">
+프로젝트를 고치고 있습니다(21.07.03 ~).
+</a>
+</h3>
 
 ### 🔑 채널 아이디 : coronavirus19
 
@@ -26,10 +32,7 @@
 
 <img alt="사용방법" height="500" src="https://user-images.githubusercontent.com/47745785/105128866-3ff7f900-5b27-11eb-895e-b9f6c3a0a1ac.gif"/>
 
-
-
-
-
+<br><br>
 
 * <b>코로나 알리미 시작하기</b>
 
@@ -46,16 +49,21 @@
 * <b>공유하기</b>
 * <b>후원하기</b>
 
+<br><br>
 
 ## 📌 Service Flow Chart
+
  <img alt="Service Flow Chart" src="https://user-images.githubusercontent.com/47745785/104889496-a65b0b00-59b1-11eb-947e-f82649cb4623.jpg" />
 
+<br><br>
 
-## 📌 AWS
+## 📌 Architecture
+
 <p align="center">
- <img alt="Service Flow Chart" height="450" width="650" src="https://user-images.githubusercontent.com/47745785/104889499-a824ce80-59b1-11eb-93eb-ec9b80f7536a.png" />
+ <img alt="Architecture" src="./Architecture.png" />
 </p>
 
+<br><br>
 
 ## 📚 출처
 
@@ -67,7 +75,7 @@
   * [국민재난안전포털](https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/sfc/dis/disasterMsgList.jsp?menuSeq=679)
   * ![img_opentype04](https://user-images.githubusercontent.com/47745785/105054890-d7bcff00-5ab5-11eb-94d3-e9b32a776a9d.png)
 
-
+<br><br>
 
 ## 🖋 Author
 
@@ -76,6 +84,7 @@
 * Mail: [inhyopark122@gmail.com](mailto:inhyopark122@gmail.com)
 * GitHub: [@PARKINHYO](https://github.com/PARKINHYO)
 
+<br><br>
 
 ## 📝 License
 
