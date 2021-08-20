@@ -26,11 +26,12 @@ class Function1:
             if (res.status_code == 200):
                 result = xmltodict.parse(res.text)
                 dd = json.loads(json.dumps(result))
-
+                print(dd)
                 for i in range(6, -1, -1):
                     self.sums.append(int(dd['response']['body']['items']['item'][i]['decideCnt']))
                     self.adds.append(int(dd['response']['body']['items']['item'][i]['decideCnt']) - int(
                         dd['response']['body']['items']['item'][i + 1]['decideCnt']))
+
                 self.complete = dd['response']['body']['items']['item'][0]['clearCnt']
                 self.completeDiff = int(dd['response']['body']['items']['item'][0]['clearCnt']) - \
                                     int(dd['response']['body']['items']['item'][1]['clearCnt'])
