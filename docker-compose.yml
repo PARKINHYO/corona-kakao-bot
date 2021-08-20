@@ -1,0 +1,22 @@
+version: "3.9"
+services: 
+  web: 
+    container_name: django
+    build: .
+    command: >
+        bash -c "python manage.py migrate
+        && gunicorn --bind 0:8000 config.wsgi:application" 
+    volumes: 
+      - .:/corona-kakao-bot
+    ports: 
+      - "8000:8000" 
+  proxy: 
+    container_name: nginx
+    image: nginx:latest
+    ports: 
+      - "80:80"
+    volumes: 
+      - .:/corona-kakao-bot
+      - .:/etc/nginx/conf.d
+    depends_on: 
+      - web

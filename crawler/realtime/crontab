@@ -1,0 +1,2 @@
+* 7-22 * * * /usr/local/bin/python /corona-kakao-bot/realtime.py > /proc/1/fd/1 2>/proc/1/fd/2
+

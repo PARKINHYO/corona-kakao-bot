@@ -1,0 +1,20 @@
+version: "3.9"
+services: 
+  daily: 
+    container_name: daily
+    build: ./daily
+    volumes: 
+      - ./assets:/corona-kakao-bot/assets
+      - /etc/localtime:/etc/localtime
+  message: 
+    container_name: message
+    build: ./message
+    volumes: 
+      - ./assets:/corona-kakao-bot/assets
+      - /etc/localtime:/etc/localtime
+  realtime:
+    container_name: realtime
+    build: ./realtime
+    volumes:
+      - ./assets:/corona-kakao-bot/assets
+      - /etc/localtime:/etc/localtime

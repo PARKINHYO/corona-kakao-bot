@@ -1,0 +1,4 @@
+requests
+xmltodict
+numpy
+matplotlib

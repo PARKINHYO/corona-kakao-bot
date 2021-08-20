@@ -1,0 +1,2 @@
+*/5 7-22 * * * /usr/local/bin/python /corona-kakao-bot/message.py > /proc/1/fd/1 2>/proc/1/fd/2
+* 5 * * * cd /corona-kakao-bot/assets/texts/cities/; rm *
