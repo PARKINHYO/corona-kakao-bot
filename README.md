@@ -60,7 +60,7 @@
 ## 📌 Architecture
 
 <p align="center">
- <img alt="Architecture" src="./Architecture.png" />
+ <img alt="Architecture" src="./aws.jpg" />
 </p>
 
 <br><br>
