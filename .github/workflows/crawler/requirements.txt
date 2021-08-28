@@ -1,0 +1,7 @@
+requests
+xmltodict
+pytz
+PyGithub
+beautifulsoup4
+selenium
+webdriver-manager
