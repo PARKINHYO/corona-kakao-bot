@@ -37,7 +37,7 @@ def text(request):
         except FileNotFoundError:
             pass
     if right is False:
-        text = "📭 해당 지역은 오늘자 코로나 관련 재난 문자가 없어요."
+        text = "📭 해당 지역은 오늘자 재난 문자가 없어요."
     else:
         text = ''.join(datas)
         text = text[:-2]
@@ -63,7 +63,7 @@ def text(request):
                     'messageText': '실시간'
             },
                 {
-                    'label': '📬 다른 지역 코로나 재난 문자 확인',
+                    'label': '📬 다른 지역 재난 문자 확인',
                     'action': 'message',
                     'messageText': '검색'
             },

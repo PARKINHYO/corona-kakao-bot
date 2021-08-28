@@ -55,7 +55,7 @@ def text(request):
                 },
                 {
                     'simpleImage': {
-                        'imageUrl': "http://localhost:80/corona/daily/image",
+                        'imageUrl': "http://[server ip address]:80/corona/daily/image",
                         'altText': "주간그래프"
                     }
                 }
@@ -66,7 +66,7 @@ def text(request):
                 'messageText': '실시간',
             },
                 {
-                    'label': '3️⃣번 코로나 재난 문자 확인',
+                    'label': '3️⃣번 재난 문자 확인',
                     'action': 'message',
                     'messageText': '지역별'
             },

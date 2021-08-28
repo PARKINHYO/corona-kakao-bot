@@ -58,7 +58,7 @@ def text(request):
                 'messageText': '총'
             },
                 {
-                    'label': '3️⃣번 코로나 재난 문자 확인',
+                    'label': '3️⃣번 재난 문자 확인',
                     'action': 'message',
                     'messageText': '지역별'
             },
