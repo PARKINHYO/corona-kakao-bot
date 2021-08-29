@@ -2,7 +2,7 @@ name: crawler test and upload issue
 
 on: 
   schedule: 
-  - cron: '0 15 * * *'
+  - cron: '0 10 * * *'
 
 jobs:
   build:
